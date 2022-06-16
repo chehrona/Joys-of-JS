@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RPS with events</title>
+</head>
+<body>
+    <h1 id="instructionsHTML">Press r, p, or s to start playing</h1>
+    <p id="playerPrintHTML"></p>
+    <p id="compPrintHTML"></p>
+    <p id="winHTML"></p>
+    <p id="lossHTML"></p>
+    <p id="tieHTML"></p>
+    <script>
+        let instructionsPrint = document.getElementById("instructionsHTML");
+        let playerChoicePrint = document.getElementById("playerPrintHTML");
+        let compChoicePrint = document.getElementById("compPrintHTML");
+        let playerWin = document.getElementById("winHTML");
+        let playerTie = document.getElementById("tieHTML");
+        let playerLoss = document.getElementById("lossHTML");
+
+
+        let choices = ["r", "s", "p"];
+        let wins = 0;
+        let losses = 0;
+        let ties = 0;
+
+        let playerChoice = "";
+        let compChoice = "";
+
+        document.onkeyup = function (event) {
+
+            playerChoice = event.key;
+            compChoice = choices[Math.floor(Math.random() * choices.length)];
+            if ((playerChoice === "r") || (playerChoice === "s") || (playerChoice === "p")) {
+                if (((playerChoice === "r") && (compChoice === "s")) || ((playerChoice === "p") && (compChoice === "r")) || ((playerChoice === "s") && (compChoice === "p"))) {
+                    wins++;
+                } else if (playerChoice === compChoice) {
+                    ties++;
+                } else {
+                    losses++;
+                }
+
+
+            playerChoicePrint.textContent = "You choose: " + playerChoice;
+            compChoicePrint.textContent = "The computer chose: " + compChoice;
+            playerWin.textContent = "Wins: " + wins;
+            playerLoss.textContent = "Losses: " + losses;
+            playerTie.textContent = "Ties: " + ties;
+        }
+        };
+
+    </script>
+</body>
+</html>
