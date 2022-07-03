@@ -1,0 +1,15 @@
+#questionMark {
+    padding: 2%;
+    border-radius: 30px;
+    font-size: 34px;
+    background-color: cornflowerblue;
+    font-weight: bolder;
+}
+
+.everything {
+    text-align: center;
+}
+
+#randomNumber {
+    font-size: 28px;
+}
